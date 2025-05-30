@@ -155,3 +155,13 @@ nano ~/.zshrc
 
 - Encontre a linha que diz plugins=(git)
 - Substitua essa linha por plugins=(git zsh-autosuggestions zsh-syntax-highlighting fast-syntax-highlighting zsh-autocomplete)
+
+
+# Configurações GIT
+
+- git init
+- git add .
+- git commit -m "first commit"
+- git branch -M main
+- git remote add origin https://github.com/seu-usuario-do-github/java_foundations.git
+- git push -u origin main
