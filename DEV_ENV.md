@@ -156,7 +156,6 @@ nano ~/.zshrc
 - Encontre a linha que diz plugins=(git)
 - Substitua essa linha por plugins=(git zsh-autosuggestions zsh-syntax-highlighting fast-syntax-highlighting zsh-autocomplete)
 
-
 # Configurações GIT
 
 - git init
@@ -165,3 +164,48 @@ nano ~/.zshrc
 - git branch -M main
 - git remote add origin https://github.com/seu-usuario-do-github/java_foundations.git
 - git push -u origin main
+
+# Instalação do JDK 24 (Java Development Kit)
+
+- Acesse o site:
+  [JDK Download](https://www.oracle.com/java/technologies/downloads/)
+
+- Acessar o WSL 2
+  - Use wget para baixar o arquivo. Exemplo:
+
+```
+wget https://download.oracle.com/java/24/latest/jdk-24_linux-x64_bin.tar.gz
+```
+
+- Configurar as variáveis de ambiente
+
+```
+nano ~/.zshrc
+```
+
+- Adicione ao final:
+
+```
+export JAVA_HOME=/opt/jdk/jdk-24.0.1
+export PATH=$JAVA_HOME/bin:$PATH
+```
+
+- Salve e recarregue o shell:
+
+```
+source ~/.zshrc
+```
+
+- Verificar instalação
+
+```
+java -version
+```
+
+- Você deve ver algo como:
+
+```
+java version "24.0.1" 2025-04-15
+Java(TM) SE Runtime Environment (build 24.0.1+9-30)
+Java HotSpot(TM) 64-Bit Server VM (build 24.0.1+9-30, mixed mode, sharing)
+```
