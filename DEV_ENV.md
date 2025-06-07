@@ -175,6 +175,8 @@ nano ~/.zshrc
 
 ```
 wget https://download.oracle.com/java/24/latest/jdk-24_linux-x64_bin.tar.gz
+sudo mkdir -p /opt/jdk
+sudo tar -xvzf jdk-24_linux-x64_bin.tar.gz -C /opt/jdk
 ```
 
 - Configurar as variáveis de ambiente
