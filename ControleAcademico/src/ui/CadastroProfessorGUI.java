@@ -1,10 +1,7 @@
 package ui;
 
 import java.io.PrintWriter;
-
 import javax.swing.JOptionPane;
-
-import model.Aluno;
 import model.Professor;
 
 public class CadastroProfessorGUI {
