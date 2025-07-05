@@ -1,14 +1,18 @@
 package model;
 
-public class Disciplina {
-    private String nome;
-    private int cargaHoraria;
-    private int id;
+import java.util.Random;
 
-    public Disciplina(String nome, int cargaHoraria, int id) {
+public class Disciplina {
+    private int id;
+    private String nome;
+    private int cargaHoraria; //todo mudar tipo para horas
+    private String categoria;
+
+    public Disciplina(String nome, int cargaHoraria, String categoria) {
+        this.id = this.gerarId();
         this.nome = nome;
         this.cargaHoraria = cargaHoraria;
-        this.id = id;
+        this.categoria = categoria;
     }
 
     public String getNome() {
@@ -27,18 +31,31 @@ public class Disciplina {
         this.cargaHoraria = cargaHoraria;
     }
 
+    public int gerarId() {
+        Random rand = new Random();
+        int id = rand.nextInt(9999) + 1; // 1 até 9999
+        return id;
+    }
+
     public int getId() {
         return id;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public String getCategoria() {
+        return categoria;
+    }
+
+    public void setCategoria(String categoria) {
+        this.categoria = categoria;
     }
 
     public void visualizar() {
         System.out.println(
                 "Identificação: " + id + "\n" +
                         "Disciplina: " + nome + "\n" +
-                        "Carga Horária: " + cargaHoraria);
+                        "Carga Horária: " + cargaHoraria + "\n" +
+                        "Categoria: " + categoria);
     }
+
+
 }

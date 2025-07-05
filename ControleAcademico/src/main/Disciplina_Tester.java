@@ -1,10 +1,9 @@
 package main;
 
-import model.Disciplina;
+import view.DisciplinaView;
 
 public class Disciplina_Tester {
-    public static void main(String[] args) {
-        Disciplina d1 = new Disciplina("Java Foundations",80,1);
-        d1.visualizar();
+    public static void main(String[] args) throws Exception {
+        DisciplinaView.executar();
     }
 }

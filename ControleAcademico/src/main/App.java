@@ -1,9 +1,9 @@
 package main;
 
-import ui.CadastroProfessorGUI;
+import view.ProfessorView;
 
 public class App {
     public static void main(String[] args) throws Exception {
-        CadastroProfessorGUI.executar();
+        ProfessorView.executar();
     }
 }

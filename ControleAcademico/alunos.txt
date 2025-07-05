@@ -1,2 +1,0 @@
-nome, endereco, idade, matricula
-Paulo, Rua 1, 19, 1
