@@ -19,6 +19,8 @@ public class AlunoTest {
         aluno.setNome("Maria");
         aluno.setEndereco("Rua B, 456");
         aluno.setIdade(22);
+        int matricula = aluno.gerarMatricula();
+        aluno.setMatricula(matricula);
         assertEquals("Maria", aluno.getNome());
         assertEquals("Rua B, 456", aluno.getEndereco());
         assertEquals(22, aluno.getIdade());
