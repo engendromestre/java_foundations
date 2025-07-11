@@ -10,6 +10,9 @@ public class Professor {
     private String cpf;
     private String atuacao;
 
+    public Professor() {
+    }
+
     public Professor(String nome, String endereco, int idade, String cpf, String atuacao) {
         this.nome = nome;
         this.endereco = endereco;
@@ -45,6 +48,10 @@ public class Professor {
 
     public int getMatricula() {
         return matricula;
+    }
+
+    public void setMatricula(int matricula) {
+        this.matricula = matricula;
     }
 
     public int gerarMatricula() {
