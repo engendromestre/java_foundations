@@ -4,25 +4,33 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class AlunoTest {
+
     @Test
     public void testConstructorComParametros() {
-        Aluno aluno = new Aluno("João", "Rua A, 123", 20);
+        Endereco endereco = new Endereco("12345-678", "123", "Apto 1");
+        Aluno aluno = new Aluno("João", endereco, 20);
+
         assertEquals("João", aluno.getNome());
-        assertEquals("Rua A, 123", aluno.getEndereco());
+        assertEquals(endereco, aluno.getEndereco());
         assertEquals(20, aluno.getIdade());
         assertTrue(aluno.getMatricula() > 0 && aluno.getMatricula() < 10000);
     }
 
     @Test
     public void testConstructorSemParametros() {
+        Endereco endereco = new Endereco();
+        endereco.setCep("98765-432");
+        endereco.setNumero("456");
+        endereco.setComplemento("Fundos");
+
         Aluno aluno = new Aluno();
         aluno.setNome("Maria");
-        aluno.setEndereco("Rua B, 456");
+        aluno.setEndereco(endereco);
         aluno.setIdade(22);
-        int matricula = aluno.gerarMatricula();
-        aluno.setMatricula(matricula);
+        aluno.setMatricula(aluno.gerarMatricula());
+
         assertEquals("Maria", aluno.getNome());
-        assertEquals("Rua B, 456", aluno.getEndereco());
+        assertEquals(endereco, aluno.getEndereco());
         assertEquals(22, aluno.getIdade());
         assertTrue(aluno.getMatricula() > 0 && aluno.getMatricula() < 10000);
     }
@@ -36,8 +44,15 @@ public class AlunoTest {
 
     @Test
     public void testToString() {
-        Aluno aluno = new Aluno("Carlos", "Rua C, 789", 25);
-        String expected = "Aluno [nome=Carlos, endereco=Rua C, 789, idade=25, matricula=" + aluno.getMatricula() + "]";
+        Endereco endereco = new Endereco("12345678", "789", "Sala 2");
+        endereco.setLogradouro("Rua C");
+        endereco.setBairro("Bairro W");
+        endereco.setLocalidade("Cidade V");
+        endereco.setUf("MG");
+
+        Aluno aluno = new Aluno("Carlos", endereco, 25);
+        String expected = "Aluno [nome=Carlos, endereco=" + endereco.toString() +
+                ", idade=25, matricula=" + aluno.getMatricula() + "]";
         assertEquals(expected, aluno.toString());
     }
 }

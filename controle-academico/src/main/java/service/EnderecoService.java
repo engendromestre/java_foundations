@@ -9,8 +9,9 @@ import com.google.gson.Gson;
 import model.Endereco;
 
 public class EnderecoService {
-    public static Endereco buscarEnderecoPorCEP(String cep) throws IOException, InterruptedException {
-        String url = "https://viacep.com.br/ws/" + cep + "/json/";
+    public static void completarEnderecoViaCEP(Endereco endereco) throws IOException, InterruptedException {
+        String cepLimpo = endereco.getCep().replace("-", "");
+        String url = "https://viacep.com.br/ws/" + cepLimpo + "/json/";
 
         HttpClient client = HttpClient.newHttpClient();
         HttpRequest request = HttpRequest.newBuilder()
@@ -21,8 +22,12 @@ public class EnderecoService {
         HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
 
         Gson gson = new Gson();
-        Endereco endereco = gson.fromJson(response.body(), Endereco.class);
+        Endereco dadosAPI = gson.fromJson(response.body(), Endereco.class);
 
-        return endereco;
+        // Preencher os dados dinâmicos
+        endereco.setLogradouro(dadosAPI.getLogradouro());
+        endereco.setBairro(dadosAPI.getBairro());
+        endereco.setLocalidade(dadosAPI.getLocalidade());
+        endereco.setUf(dadosAPI.getUf());
     }
 }

@@ -1,6 +1,11 @@
 package model;
 
 public class Endereco {
+    private String cep;
+    private String numero;
+    private String complemento;
+
+    // Campos preenchidos pela API
     private String logradouro;
     private String bairro;
     private String localidade;
@@ -9,13 +14,38 @@ public class Endereco {
     public Endereco() {
     }
 
-    public Endereco(String logradouro, String bairro, String localidade, String uf) {
-        this.logradouro = logradouro;
-        this.bairro = bairro;
-        this.localidade = localidade;
-        this.uf = uf;
+    public Endereco(String cep, String numero, String complemento) {
+        this.cep = cep;
+        this.numero = numero;
+        this.complemento = complemento;
     }
 
+    // Getters e Setters essenciais
+    public String getCep() {
+        return cep;
+    }
+
+    public void setCep(String cep) {
+        this.cep = cep.replace("-", "").trim();
+    }
+
+    public String getNumero() {
+        return numero;
+    }
+
+    public void setNumero(String numero) {
+        this.numero = numero;
+    }
+
+    public String getComplemento() {
+        return complemento;
+    }
+
+    public void setComplemento(String complemento) {
+        this.complemento = complemento;
+    }
+
+    // Getters para dados da API
     public String getLogradouro() {
         return logradouro;
     }
@@ -50,7 +80,9 @@ public class Endereco {
 
     @Override
     public String toString() {
-        return "Endereco [logradouro=" + logradouro + ", bairro=" + bairro + ", localidade=" + localidade + ", uf=" + uf
-                + "]";
+        return logradouro + ", nº " + numero + " " +
+                (complemento != null ? "- " + complemento : "") +
+                " - " + bairro + " - " + localidade + "/" + uf +
+                " (CEP: " + cep + ")";
     }
 }

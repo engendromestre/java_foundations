@@ -1,2 +1,3 @@
 nome,endereco,idade,matricula
 Roberto,Endereco [logradouro=Rua Duvílio Leão, bairro=Conjunto Residencial Indamar, localidade=Botucatu, uf=SP],31,4354
+Paulo,18601120,280,casa,39,544

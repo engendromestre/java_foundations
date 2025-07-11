@@ -4,14 +4,14 @@ import java.util.Random;
 
 public class Aluno {
     private String nome;
-    private String endereco;
+    private Endereco endereco;
     private int idade;
     private int matricula;
 
     public Aluno() {
     }
 
-    public Aluno(String nome, String endereco, int idade) {
+    public Aluno(String nome, Endereco endereco, int idade) {
         this.nome = nome;
         this.endereco = endereco;
         this.idade = idade;
@@ -26,11 +26,11 @@ public class Aluno {
         this.nome = nome;
     }
 
-    public String getEndereco() {
+    public Endereco getEndereco() {
         return endereco;
     }
 
-    public void setEndereco(String endereco) {
+    public void setEndereco(Endereco endereco) {
         this.endereco = endereco;
     }
 

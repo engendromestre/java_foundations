@@ -11,14 +11,18 @@ import service.EnderecoService;
 
 public class AlunoView {
     public static void executar() throws Exception {
-        String nome = JOptionPane.showInputDialog("Digite o nome do Aluno:");
-        // String endereco = JOptionPane.showInputDialog("Digite o endereço do aluno:");
-        String cep = JOptionPane.showInputDialog("Digite o CEP do aluno:");
-        Endereco endereco = EnderecoService.buscarEnderecoPorCEP(cep);
-        String idadeString = JOptionPane.showInputDialog("Digite a idade do aluno:");
-        int idade = Integer.parseInt(idadeString);
+        String nome = JOptionPane.showInputDialog("Nome do aluno:");
+        String idadeStr = JOptionPane.showInputDialog("Idade:");
+        int idade = Integer.parseInt(idadeStr);
 
-        Aluno aluno = new Aluno(nome, endereco.toString(), idade);
+        String cep = JOptionPane.showInputDialog("CEP:");
+        String numero = JOptionPane.showInputDialog("Número:");
+        String complemento = JOptionPane.showInputDialog("Complemento (opcional):");
+
+        Endereco endereco = new Endereco(cep, numero, complemento);
+        EnderecoService.completarEnderecoViaCEP(endereco);
+
+        Aluno aluno = new Aluno(nome, endereco, idade);
         
         // Persistência de dados em arquivo - .txt
         AlunoRepository.salvar(aluno);
