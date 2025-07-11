@@ -25,6 +25,21 @@ package "👥 Pessoas" {
 
     Pessoa <|-- Aluno
     Pessoa <|-- Professor
+
+    note right of Pessoa
+        Superclasse abstrata que representa
+        características comuns a pessoas.
+    end note
+
+    note right of Aluno
+        Aluno é uma Pessoa com matrícula
+        e curso vinculado.
+    end note
+
+    note right of Professor
+        Professor herda Pessoa e possui
+        CPF e área de atuação.
+    end note
 }
 
 package "🌐 Infraestrutura" {
@@ -35,6 +50,11 @@ package "🌐 Infraestrutura" {
         - uf : String
         - cep : String
     }
+
+    note right of Endereco
+        Representa o endereço físico.
+        Pode usar API ViaCEP futuramente.
+    end note
 }
 
 package "🎓 Acadêmico" {
@@ -59,6 +79,26 @@ package "🎓 Acadêmico" {
         - notaFinal : double
         - frequencia : double
     }
+
+    note right of Curso
+        Curso ao qual o aluno pertence.
+        Ex: Ciência da Computação.
+    end note
+
+    note right of Disciplina
+        Conteúdo acadêmico. Pode ser
+        vinculada a várias turmas.
+    end note
+
+    note right of Turma
+        Representa uma oferta de disciplina
+        em um semestre específico.
+    end note
+
+    note right of Matricula
+        Representa o vínculo do aluno com
+        uma turma. Armazena nota e frequência.
+    end note
 
     Aluno --> Curso
     Aluno --> Matricula

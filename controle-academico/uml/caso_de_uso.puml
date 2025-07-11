@@ -1,0 +1,27 @@
+@startuml casos-de-uso
+skinparam actorStyle awesome
+left to right direction
+
+actor "Aluno" as Al
+actor "Professor" as Pr
+actor "Secretaria" as Se
+
+rectangle "Sistema de Controle Acadêmico" {
+    usecase "Fazer matrícula" as UC1
+    usecase "Visualizar notas" as UC2
+    usecase "Lançar notas" as UC3
+    usecase "Criar turma" as UC4
+    usecase "Gerenciar disciplinas" as UC5
+    usecase "Emitir histórico escolar" as UC6
+}
+
+Al --> UC1
+Al --> UC2
+Al --> UC6
+
+Pr --> UC3
+Pr --> UC4
+
+Se --> UC5
+Se --> UC6
+@enduml
