@@ -1,0 +1,74 @@
+@startuml controle-academico
+skinparam classAttributeIconSize 0
+skinparam classFontSize 15
+skinparam classBackgroundColor #FAFAFF
+skinparam shadowing false
+left to right direction
+
+' ==== Pacotes para organização visual ====
+package "👥 Pessoas" {
+    abstract class Pessoa <<👤 Pessoa>> #EAF2F8 {
+        - nome : String
+        - idade : int
+        - endereco : Endereco
+    }
+
+    class Aluno <<👨‍🎓 Aluno>> #D4E6F1 {
+        - matricula : int
+        - curso : Curso
+    }
+
+    class Professor <<👨‍🏫 Professor>> #D4E6F1 {
+        - cpf : String
+        - atuacao : String
+    }
+
+    Pessoa <|-- Aluno
+    Pessoa <|-- Professor
+}
+
+package "🌐 Infraestrutura" {
+    class Endereco <<🏠 Endereço>> #FADBD8 {
+        - logradouro : String
+        - bairro : String
+        - localidade : String
+        - uf : String
+        - cep : String
+    }
+
+    Pessoa --> Endereco
+}
+
+package "🎓 Acadêmico" {
+    class Curso <<🎯 Curso>> #FEF9E7 {
+        - id : int
+        - nome : String
+    }
+
+    class Disciplina <<📚 Disciplina>> #FEF9E7 {
+        - id : int
+        - nome : String
+        - cargaHoraria : int
+        - categoria : String
+    }
+
+    class Turma <<🏫 Turma>> #F9E79F {
+        - id : int
+        - semestre : String
+    }
+
+    class Matricula <<📝 Matrícula>> #FCF3CF {
+        - notaFinal : double
+        - frequencia : double
+    }
+
+    Aluno --> Curso
+    Aluno --> Matricula
+    Professor --> Turma
+    Turma --> Disciplina
+    Turma --> Professor
+    Turma --> Matricula
+    Matricula --> Aluno
+    Matricula --> Turma
+}
+@enduml
