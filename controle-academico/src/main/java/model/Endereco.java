@@ -9,7 +9,7 @@ public class Endereco {
     private String logradouro;
     private String bairro;
     private String localidade;
-    private String uf;
+    private String uf;  //estado
 
     public Endereco() {
     }
