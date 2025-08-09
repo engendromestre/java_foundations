@@ -1,9 +1,10 @@
 package app;
 
-import view.ProfessorView;
+import javafx.application.Application;
+import view.fx.MainFX;
 
 public class App {
     public static void main(String[] args) throws Exception {
-        ProfessorView.executar();
+        Application.launch(MainFX.class, args);
     }
 }

@@ -16,7 +16,7 @@ public class AlunoRepository implements RepositoryInterface {
     private static ArrayList<Aluno> alunosArrayList = new ArrayList<>();
 
     // Adicionar Alunos usando Array Fixo
-    public static void addAlunos(Aluno aluno) {
+    public static void setAlunos(Aluno aluno) {
         if(contadorArray < alunosArray.length) {
             alunosArray[contadorArray] = aluno;
             contadorArray++;
@@ -26,8 +26,13 @@ public class AlunoRepository implements RepositoryInterface {
     }
 
     // Adicionar Alunos usando Array Dinâmico
-    public static void addAlunosArrayList(Aluno aluno) {
+    public static void setAlunosArrayList(Aluno aluno) {
         alunosArrayList.add(aluno);
+    }
+
+    // Retornar a Lista de Alunos
+    public static ArrayList<Aluno> getLista() {
+        return alunosArrayList;
     }
 
     // Injeção de Dependência
