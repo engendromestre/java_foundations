@@ -63,7 +63,7 @@ public class EnderecoServiceTest {
             EnderecoService.completarEnderecoViaCep(endereco);
         });
 
-        assertTrue(exception.getMessage().contains("Formato de CEP inválido"));
+        assertTrue(exception.getMessage().contains("CEP não informado ou nulo"));
     }
 
 }

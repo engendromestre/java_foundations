@@ -1,6 +1,7 @@
 package repository;
 
 import java.io.*;
+import java.util.ArrayList;
 
 import interfaces.RepositoryInterface;
 import model.Aluno;
@@ -8,6 +9,26 @@ import model.Aluno;
 public class AlunoRepository implements RepositoryInterface {
     private static final String ARQUIVO_TXT = "alunos.txt";
     private static final String ARQUIVO_CSV = "alunos.csv";
+    // Exemplo de Array Fixo
+    private static Aluno[] alunosArray = new Aluno[5];
+    private static int contadorArray = 0;
+    // Exemplo de Array Dinâmico
+    private static ArrayList<Aluno> alunosArrayList = new ArrayList<>();
+
+    // Adicionar Alunos usando Array Fixo
+    public static void addAlunos(Aluno aluno) {
+        if(contadorArray < alunosArray.length) {
+            alunosArray[contadorArray] = aluno;
+            contadorArray++;
+        } else {
+            System.err.println("Arquivo Cheio");
+        }
+    }
+
+    // Adicionar Alunos usando Array Dinâmico
+    public static void addAlunosArrayList(Aluno aluno) {
+        alunosArrayList.add(aluno);
+    }
 
     // Injeção de Dependência
     public static void salvar(Aluno aluno) {

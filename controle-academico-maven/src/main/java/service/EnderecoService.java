@@ -14,8 +14,12 @@ import model.Endereco;
 
 public class EnderecoService {
     public static void completarEnderecoViaCep(Endereco endereco) throws IOException, InterruptedException {
-        String cepLimpo = endereco
-                .getCep()
+        String cep = endereco.getCep();
+        if(cep == null) {
+            throw new IllegalArgumentException("CEP não informado ou nulo");
+        }
+
+        String cepLimpo = cep
                 .replace("-", "");
         // ! = Não
         if(!isValido(cepLimpo)) {
